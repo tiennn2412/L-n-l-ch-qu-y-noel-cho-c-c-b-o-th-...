@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tỏ Tình</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Làm người yêu tớ nhé🥰</h1>
+    <div class="buttons">
+      <button id="yes">Có</button>
+      <button id="no">Không</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #f9a8d4, #fbcfe8);
+}
+
+.container {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2rem;
+  color: #d946ef;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#yes {
+  background-color: #86efac;
+  color: #065f46;
+}
+
+#no {
+  background-color: #f87171;
+  color: #7f1d1d;
+}
+
+button:hover {
+  transform: scale(1.1);
+}// script.js
+const noButton = document.getElementById("no");
+const yesButton = document.getElementById("yes");
+
+noButton.addEventListener("mouseover", () => {
+  const container = document.querySelector(".container");
+  const containerRect = container.getBoundingClientRect();
+  const buttonRect = noButton.getBoundingClientRect();
+
+  // Tạo vị trí mới cho nút "Không"
+  const newTop = Math.random() * (containerRect.height - buttonRect.height);
+  const newLeft = Math.random() * (containerRect.width - buttonRect.width);
+
+  noButton.style.position = "absolute";
+  noButton.style.top = `${newTop}px`;
+  noButton.style.left = `${newLeft}px`;
+});
+
+yesButton.addEventListener("click", () => {
+  alert("Tớ biết mà, tớ cũng thích cậu! 🥰");
+});
